@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm55bvqnmfrvf"]
+
+[ext_resource type="Script" path="res://game-controller/game_controller.gd" id="1_xef60"]
+
+[sub_resource type="GDScript" id="GDScript_4iaeq"]
+script/source = "extends AudioStreamPlayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="GameController" type="Node2D"]
+script = ExtResource("1_xef60")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+script = SubResource("GDScript_4iaeq")
