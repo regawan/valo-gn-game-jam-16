@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cljorgtgybk3n"
+path="res://.godot/imported/Fence_corner.obj-fae2ab3753661a6aba838df93496b367.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Fence_corner.obj-fae2ab3753661a6aba838df93496b367.mesh"]
+
+source_file="res://character_art/Sir Ultraviolence assets/Decor/3d/fences/fence_corner_2/Fence_corner.obj"
+dest_files=["res://.godot/imported/Fence_corner.obj-fae2ab3753661a6aba838df93496b367.mesh", "res://.godot/imported/Fence_corner.obj-fae2ab3753661a6aba838df93496b367.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

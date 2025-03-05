@@ -1,0 +1,16 @@
+# Made in Blockbench 4.10.3
+mtllib plane_normal.mtl
+
+o plane
+v 0.5 1.0125 0.5
+v 0.5 1.0125 -0.5
+v -0.5 1.0125 0.5
+v -0.5 1.0125 -0.5
+vt 1 0
+vt 1 1
+vt 0 1
+vt 0 0
+vn 0 1 0
+usemtl m_58ea5492-3e60-ecb8-9a2d-67066d494ab9
+f 1/1/1 2/2/1 4/3/1
+f 1/1/1 4/3/1 3/4/1
