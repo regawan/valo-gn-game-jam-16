@@ -355,6 +355,9 @@ stream = SubResource("AudioStreamOggVorbis_4dugh")
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_kfbq2")
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.396889, 0.396889, 0.396889, 1)
+
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
