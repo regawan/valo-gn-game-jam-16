@@ -30,6 +30,9 @@ func _physics_process(delta: float) -> void:
 		# See the note below about the following boolean assignment.
 		$AnimatedSprite2D.flip_h = velocity.x < 0
 
+func take_damage():
+	queue_free()
+
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
 
