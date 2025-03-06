@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends CharacterBody2D
 
 @export var speed = 50 # How fast the mob will move (pixels/sec).
 var player
@@ -11,9 +11,10 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
-	var velocity = direction * speed
+	velocity = direction * speed
+	move_and_slide()
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
