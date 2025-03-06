@@ -41,10 +41,8 @@ func _on_mob_timer_timeout():
 	var mob = mob_scene.instantiate()
 
 	# Set the spawn location to a random position on Path.
-	var mob_spawn_location = $MobPath/MobSpawnLocation
-	mob_spawn_location.progress_ratio = randf()
-	mob.position = mob_spawn_location.position
+	%MobSpawnLocation.progress_ratio = randf()
+	mob.global_position = %MobSpawnLocation.global_position
 
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
-

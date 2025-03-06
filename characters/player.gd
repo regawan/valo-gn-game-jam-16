@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 signal health_depleted
 
-@export var speed = 200 # How fast the player will move (pixels/sec).
+@export var speed = 80 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
 var health = 100.0
 const DAMAGE_RATE = 5.0
@@ -54,6 +54,8 @@ func _physics_process(delta):
 	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
 	if overlapping_mobs.size() > 0:
 		health -= DAMAGE_RATE * delta * overlapping_mobs.size()
+		%ProgressBar.value  = health
+		%ProgressBar.max_value = 100
 		if health <= 0.0:
 			health_depleted.emit()
 			$CollisionShape2D.set_deferred("disabled", true)

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 50 # How fast the mob will move (pixels/sec).
+@export var speed = 20 # How fast the mob will move (pixels/sec).
 var player
 
 # Called when the node enters the scene tree for the first time.
