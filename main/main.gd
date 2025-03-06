@@ -45,17 +45,6 @@ func _on_mob_timer_timeout():
 	mob_spawn_location.progress_ratio = randf()
 	mob.position = mob_spawn_location.position
 
-	# Set the mob's direction perpendicular to the path direction.
-	var direction = mob_spawn_location.rotation + PI / 2
-
-	# Add some randomness to the direction.
-	direction += randf_range(-PI / 4, PI / 4)
-	mob.rotation = direction
-
-	# Choose the velocity for the mob.
-	var velocity = Vector2(randf_range(100.0, 150.0), 0.0)
-	mob.linear_velocity = velocity.rotated(direction)
-
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
 

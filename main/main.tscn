@@ -356,7 +356,7 @@ stream = SubResource("AudioStreamOggVorbis_4dugh")
 stream = ExtResource("6_kfbq2")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.396889, 0.396889, 0.396889, 1)
+color = Color(0.666569, 0.666569, 0.666569, 1)
 
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="hit" from="Player" to="." method="game_over"]
