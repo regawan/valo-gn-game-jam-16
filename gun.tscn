@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2rs8ga7k04tc"]
+[gd_scene load_steps=5 format=3 uid="uid://b2rs8ga7k04tc"]
 
 [ext_resource type="Script" uid="uid://dig4vjrl37qtr" path="res://gun.gd" id="1_dk5gl"]
 [ext_resource type="Texture2D" uid="uid://bwa4b3xld0iep" path="res://character_art/Guns_V1.01 - Commission - Copy/01 - Individual sprites/Guns/AK 47 [96x48].png" id="1_vk1bi"]
+[ext_resource type="AudioStream" uid="uid://bk1v86frnaun7" path="res://music/battle-rifle-42734.mp3" id="3_kw0bs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dk5gl"]
 radius = 105.019
@@ -24,6 +25,10 @@ texture = ExtResource("1_vk1bi")
 [node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Ak47[96x48]"]
 unique_name_in_owner = true
 position = Vector2(31, -14)
+
+[node name="ShotSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kw0bs")
+volume_db = -3.19
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
