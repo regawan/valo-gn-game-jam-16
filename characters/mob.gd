@@ -35,6 +35,12 @@ func _physics_process(delta: float) -> void:
 func take_damage():
 	exploding.emit()
 	queue_free()
+
+	# Make it explode
+	const EXPLOSION_SCENE = preload("res://death_explosion.tscn")
+	var explosion = EXPLOSION_SCENE.instantiate()
+	get_parent().add_child(explosion)
+	explosion.global_position = global_position
 	
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

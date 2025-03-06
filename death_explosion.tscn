@@ -1,5 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b7jvgwye7d6jw"]
 
+[ext_resource type="Script" path="res://death_explosion.gd" id="1_4gqjm"]
+
 [sub_resource type="Curve" id="Curve_rdxuk"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.503571, 0.502209), 0.0, 0.0, 0, 0, Vector2(0.989286, 0.454345), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -7,12 +9,6 @@ point_count = 3
 [sub_resource type="Gradient" id="Gradient_4gqjm"]
 offsets = PackedFloat32Array(0, 0.503937)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0.662745, 1)
-
-[sub_resource type="GDScript" id="GDScript_rdxuk"]
-script/source = "extends CPUParticles2D
-
-func _ready():
-  exploding.connect(_on_exploding)"
 
 [sub_resource type="Gradient" id="Gradient_xtcgg"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -40,7 +36,7 @@ scale_amount_max = 8.0
 scale_amount_curve = SubResource("Curve_rdxuk")
 color = Color(0.927659, 0.925714, 0.924052, 1)
 color_ramp = SubResource("Gradient_4gqjm")
-script = SubResource("GDScript_rdxuk")
+script = ExtResource("1_4gqjm")
 
 [node name="DeathLight" type="PointLight2D" parent="."]
 position = Vector2(1, 0)
