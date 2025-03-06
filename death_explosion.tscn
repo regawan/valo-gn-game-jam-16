@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7jvgwye7d6jw"]
+
+[sub_resource type="Curve" id="Curve_rdxuk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.503571, 0.502209), 0.0, 0.0, 0, 0, Vector2(0.989286, 0.454345), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_4gqjm"]
+offsets = PackedFloat32Array(0, 0.503937)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0.662745, 1)
+
+[sub_resource type="GDScript" id="GDScript_rdxuk"]
+script/source = "extends CPUParticles2D
+
+func _ready():
+  exploding.connect(_on_exploding)"
+
+[sub_resource type="Gradient" id="Gradient_xtcgg"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4gqjm"]
+gradient = SubResource("Gradient_xtcgg")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="DeathExplosion" type="CPUParticles2D"]
+emitting = false
+amount = 120
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 1.0
+fixed_fps = 60
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 50)
+initial_velocity_min = 35.0
+initial_velocity_max = 140.0
+scale_amount_min = 2.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_rdxuk")
+color = Color(0.927659, 0.925714, 0.924052, 1)
+color_ramp = SubResource("Gradient_4gqjm")
+script = SubResource("GDScript_rdxuk")
+
+[node name="DeathLight" type="PointLight2D" parent="."]
+position = Vector2(1, 0)
+color = Color(1, 1, 0.85098, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_4gqjm")
+texture_scale = 2.0

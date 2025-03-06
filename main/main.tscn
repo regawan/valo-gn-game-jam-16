@@ -645,7 +645,7 @@ stream = ExtResource("7_67ri8")
 stream = ExtResource("6_kfbq2")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0, 0, 0, 1)
+color = Color(0.489622, 0.489622, 0.489622, 1)
 
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
