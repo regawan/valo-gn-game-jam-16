@@ -29,6 +29,9 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.flip_v = false
 		# See the note below about the following boolean assignment.
 		$AnimatedSprite2D.flip_h = velocity.x < 0
+		
+func explode():
+	pass
 
 func take_damage():
 	queue_free()

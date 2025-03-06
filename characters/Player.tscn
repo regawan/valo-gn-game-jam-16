@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://d2tnc8oy46wbq"]
+[gd_scene load_steps=35 format=3 uid="uid://d2tnc8oy46wbq"]
 
 [ext_resource type="Script" uid="uid://6pba4dfu0ut3" path="res://characters/player.gd" id="1_mj886"]
 [ext_resource type="Texture2D" uid="uid://ck2fh5ir7bsj5" path="res://character_art/hero/Walk/walk_right_down.png" id="2_evndh"]
@@ -195,19 +195,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_evndh"]
 radius = 7.0
 
-[sub_resource type="Gradient" id="Gradient_x0jl3"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.786822, 1)
-colors = PackedColorArray(1, 1, 1, 1, 4.06247e-05, 4.06247e-05, 4.06247e-05, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_evndh"]
-gradient = SubResource("Gradient_x0jl3")
-width = 256
-height = 208
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.6, 0)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_evndh"]
 bg_color = Color(0, 0, 0, 1)
 
@@ -228,14 +215,6 @@ animation = &"walk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_evndh")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(1, 1, 0.588235, 1)
-energy = 0.8
-shadow_enabled = true
-shadow_filter = 2
-shadow_filter_smooth = 2.1
-texture = SubResource("GradientTexture2D_evndh")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true

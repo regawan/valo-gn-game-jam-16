@@ -28,7 +28,7 @@ position = Vector2(31, -14)
 
 [node name="ShotSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_kw0bs")
-volume_db = -3.19
+volume_db = -25.0
 
 [node name="ShotTimer" type="Timer" parent="."]
 wait_time = 0.2

@@ -16,6 +16,15 @@ func shoot() -> void:
 	new_bullet.global_position = %ShootingPoint.global_position
 	new_bullet.rotation = %ShootingPoint.global_rotation
 	%ShootingPoint.add_child(new_bullet)
+
+	var sfx = AudioStreamPlayer.new()
+	sfx.stream = $ShotSound.stream
+	sfx.volume_db = $ShotSound.volume_db
+	sfx.pitch_scale = $ShotSound.pitch_scale
+	sfx.connect("finished", sfx.queue_free)
+	get_parent().add_child(sfx)
+	sfx.play()
+
 	shot.emit()
 	can_shoot = false
 	$ShotTimer.start()

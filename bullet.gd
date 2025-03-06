@@ -13,8 +13,8 @@ func _physics_process(delta:float):
 	if travelled_distance > RANGE:
 		queue_free()
 
-	$Tracer.texture_scale = max(0, 1.0 - travelled_distance / RANGE)
-	$Tracer.energy = max(0.1, 1.0 - travelled_distance / RANGE)
+	$Tracer.texture_scale = max(0, pow(1.0 - (travelled_distance / RANGE), 3))
+	$Tracer.energy = max(0, 1.0 - (travelled_distance / RANGE))
 
 
 func _on_body_entered(body:Node2D):
