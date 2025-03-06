@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b7jvgwye7d6jw"]
 
-[ext_resource type="Script" path="res://death_explosion.gd" id="1_4gqjm"]
+[ext_resource type="Script" uid="uid://ciep57wk0gwpr" path="res://death_explosion.gd" id="1_4gqjm"]
 
 [sub_resource type="Curve" id="Curve_rdxuk"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.503571, 0.502209), 0.0, 0.0, 0, 0, Vector2(0.989286, 0.454345), 0.0, 0.0, 0, 0]
@@ -15,6 +15,8 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4gqjm"]
 gradient = SubResource("Gradient_xtcgg")
+width = 48
+height = 48
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
@@ -40,7 +42,9 @@ script = ExtResource("1_4gqjm")
 
 [node name="DeathLight" type="PointLight2D" parent="."]
 position = Vector2(1, 0)
-color = Color(1, 1, 0.85098, 1)
+color = Color(0.976471, 0.811765, 0.341176, 1)
 energy = 0.0
 texture = SubResource("GradientTexture2D_4gqjm")
-texture_scale = 2.0
+texture_scale = 3.5
+
+[connection signal="finished" from="." to="." method="_on_finished"]
