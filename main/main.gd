@@ -75,7 +75,7 @@ func new_game():
 		await $HUD/MessageTimer.timeout
 		$HUD.show_message("Suddenly, you hear much clearer. Are those footsteps?!")
 		await $HUD/MessageTimer.timeout
-		$HUD.show_message("But how can you view where they are coming from?")
+		$HUD.show_message("But how can you VIEW where they are coming from?")
 		await $HUD/MessageTimer.timeout
 		$HUD.show_next_level(total_mobs, level)
 	else:
