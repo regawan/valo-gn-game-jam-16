@@ -22,7 +22,7 @@ func start():
 	set_physics_process(true)
 	$Gun.set_physics_process(true)
 	show()
-	$CollisionShape2D.disabled = false
+	$CollisionShape2D.set_deferred("disabled", false)
 
 func die():
 	set_physics_process(false)
