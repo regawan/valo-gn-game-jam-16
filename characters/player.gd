@@ -15,13 +15,12 @@ func _ready() -> void:
 	hide()
 
 # Reset the player when starting a new game
-func start(pos):
+func start():
 	health = MAX_HEALTH
 	%ProgressBar.value = health
 	$Gun.reload()
 	set_physics_process(true)
 	$Gun.set_physics_process(true)
-	position = pos
 	show()
 	$CollisionShape2D.disabled = false
 

@@ -614,6 +614,7 @@ tile_map_data = PackedByteArray("AADq//H/AAAAAAAAAADq//L/AAAAAAEAAADq//P/AAAAAAI
 tile_set = SubResource("TileSet_4dugh")
 
 [node name="Player" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(720, 560)
 
 [node name="MobPath" type="Path2D" parent="Player"]
 position = Vector2(-351.264, -240.158)
@@ -643,7 +644,6 @@ stream = ExtResource("6_kfbq2")
 pitch_scale = 0.5
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.753984, 0.753984, 0.753984, 1)
 
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="gun_shot" from="Player" to="." method="_on_player_gun_shot"]
