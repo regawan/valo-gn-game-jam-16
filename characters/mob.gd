@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed = 20 # How fast the mob will move (pixels/sec).
 var player
 signal exploding
+var can_attack = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,6 +33,11 @@ func _physics_process(delta: float) -> void:
 		# See the note below about the following boolean assignment.
 		$AnimatedSprite2D.flip_h = velocity.x < 0
 
+	if $AttackBox.has_overlapping_bodies() and can_attack:
+		can_attack = false
+		$AttackTimer.start()
+		$AttackSound.play()
+
 
 func take_damage():
 	exploding.emit()
@@ -47,4 +53,6 @@ func take_damage():
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
 
-	
+
+func _on_attack_timer_timeout() -> void:
+	can_attack = true

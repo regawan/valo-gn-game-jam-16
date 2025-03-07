@@ -20,13 +20,14 @@ func start(pos):
 	%ProgressBar.value = health
 	$Gun.reload()
 	set_physics_process(true)
+	$Gun.set_physics_process(true)
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
 
 func die():
-	hide()
 	set_physics_process(false)
+	$Gun.set_physics_process(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

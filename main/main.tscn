@@ -644,7 +644,7 @@ stream = ExtResource("6_kfbq2")
 pitch_scale = 0.5
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0, 0, 0, 1)
+color = Color(0.597176, 0.597176, 0.597176, 1)
 
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="gun_shot" from="Player" to="." method="_on_player_gun_shot"]

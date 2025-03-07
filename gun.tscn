@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cvgsxaq4yo2h8" path="res://music/rifle-clip-empty-98832.wav" id="4_8iju2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dk5gl"]
-radius = 105.019
+radius = 21.0
 
 [node name="Gun" type="Area2D"]
 collision_layer = 0

@@ -10,7 +10,7 @@ func _ready():
 
 
 func game_over():
-	get_tree().call_group("mobs", "queue_free")
+	get_tree().call_group("mobs", "set_physics_process(false)")
 	$Player.die()
 	$MobTimer.stop()
 	# Show game over text
