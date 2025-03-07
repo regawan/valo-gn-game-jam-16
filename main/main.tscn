@@ -629,10 +629,6 @@ rotation = -0.00638396
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="StartTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(720, 540)
 
@@ -650,4 +646,3 @@ pitch_scale = 0.5
 [connection signal="gun_shot" from="Player" to="." method="_on_player_gun_shot"]
 [connection signal="health_depleted" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
-[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

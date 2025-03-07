@@ -20,7 +20,7 @@ func show_game_over():
 	$StartButton.show()
 
 func update_ammo(ammo):
-	$AmmoLabel.text = str(ammo)
+	$Stats/AmmoLabel.text = str(ammo)
 
 func _on_start_button_pressed() -> void:
 	$StartButton.hide()
