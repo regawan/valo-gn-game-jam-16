@@ -1,10 +1,12 @@
-[gd_scene load_steps=35 format=3 uid="uid://d2tnc8oy46wbq"]
+[gd_scene load_steps=37 format=3 uid="uid://d2tnc8oy46wbq"]
 
 [ext_resource type="Script" uid="uid://6pba4dfu0ut3" path="res://characters/player.gd" id="1_mj886"]
 [ext_resource type="Texture2D" uid="uid://ck2fh5ir7bsj5" path="res://character_art/hero/Walk/walk_right_down.png" id="2_evndh"]
 [ext_resource type="Texture2D" uid="uid://cixg7fucay25a" path="res://character_art/hero/Walk/walk_down.png" id="3_evndh"]
 [ext_resource type="Texture2D" uid="uid://bqpifj05wxs7q" path="res://character_art/hero/Walk/walk_up.png" id="3_x0jl3"]
 [ext_resource type="PackedScene" uid="uid://b2rs8ga7k04tc" path="res://gun.tscn" id="5_evndh"]
+[ext_resource type="AudioStream" uid="uid://bcd1upvv7wc3e" path="res://music/walking-sound-effect-onestep.wav" id="6_h1q25"]
+[ext_resource type="AudioStream" uid="uid://dlhiuk1o6vsof" path="res://music/zombie-bite-96528.mp3" id="7_j31ep"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_evndh"]
 atlas = ExtResource("2_evndh")
@@ -254,4 +256,17 @@ position_smoothing_enabled = true
 
 [node name="Gun" parent="." instance=ExtResource("5_evndh")]
 
+[node name="WalkSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_h1q25")
+volume_db = -10.0
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_j31ep")
+pitch_scale = 1.31
+max_polyphony = 4
+
+[node name="HurtTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="shot" from="Gun" to="." method="_on_gun_shot"]
+[connection signal="timeout" from="HurtTimer" to="." method="_on_hurt_timer_timeout"]

@@ -46,6 +46,8 @@ func _physics_process(delta):
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		$AnimatedSprite2D.play()
+		if $WalkSound.playing == false:
+			$WalkSound.play()
 	else:
 		$AnimatedSprite2D.stop()
 

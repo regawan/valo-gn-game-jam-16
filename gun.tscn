@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dig4vjrl37qtr" path="res://gun.gd" id="1_dk5gl"]
 [ext_resource type="Texture2D" uid="uid://bwa4b3xld0iep" path="res://character_art/Guns_V1.01 - Commission - Copy/01 - Individual sprites/Guns/AK 47 [96x48].png" id="1_vk1bi"]
 [ext_resource type="AudioStream" uid="uid://bk1v86frnaun7" path="res://music/battle-rifle-42734.mp3" id="3_kw0bs"]
-[ext_resource type="AudioStream" uid="uid://blpckar8q1uj7" path="res://music/rifle-clip-empty-98832.mp3" id="4_8iju2"]
+[ext_resource type="AudioStream" uid="uid://cvgsxaq4yo2h8" path="res://music/rifle-clip-empty-98832.wav" id="4_8iju2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dk5gl"]
 radius = 105.019

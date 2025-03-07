@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://djhpy6scm7kut"]
+[gd_scene load_steps=14 format=3 uid="uid://djhpy6scm7kut"]
 
 [ext_resource type="Script" uid="uid://dgm1ybexh3yvs" path="res://characters/mob.gd" id="1_wr7qb"]
 [ext_resource type="Texture2D" uid="uid://droj3g6cl1qyt" path="res://character_art/zombie_sheet.png" id="2_xtcgg"]
+[ext_resource type="AudioStream" uid="uid://bhrsotuv8bv86" path="res://music/monster_walk.wav" id="3_5hqrb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xtcgg"]
 size = Vector2(14, 24)
@@ -90,3 +91,9 @@ show_behind_parent = true
 position = Vector2(-0.5, 0)
 scale = Vector2(0.5, 0.5)
 occluder = SubResource("OccluderPolygon2D_xtcgg")
+
+[node name="WalkSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5hqrb")
+volume_db = 5.0
+pitch_scale = 1.2
+attenuation = 6.9

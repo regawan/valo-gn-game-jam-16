@@ -9,6 +9,7 @@ func _ready() -> void:
 	player = get_node("/root/Main/Player")
 	var mob_types = Array($AnimatedSprite2D.sprite_frames.get_animation_names())
 	$AnimatedSprite2D.animation = mob_types.pick_random()
+	$WalkSound.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
