@@ -57,8 +57,7 @@ func game_over():
 func new_game():
 	# Remove mobs when new game starts
 	get_tree().call_group("mobs", "queue_free")
-
-	$HUD/Title.queue_free()
+	
 	$HUD/MessageTimer.start()
 
 	level_manager()

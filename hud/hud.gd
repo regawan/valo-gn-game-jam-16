@@ -34,6 +34,8 @@ func update_level_indicator(level):
 
 func _on_start_button_pressed() -> void:
 	$StartButton.hide()
+	if has_node("Title"):
+		get_node("Title").queue_free()
 	start_game.emit()
 
 func _on_message_timer_timeout() -> void:
