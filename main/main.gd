@@ -22,7 +22,7 @@ func level_manager():
 		mobs_to_kill = 5
 		var steps = 300
 		for i in range(steps+1):
-			if i % 30 == 0:
+			if i % 20 == 0:
 				$CanvasModulate.color = Color(1.0 - (float(i) / float(steps)), 1.0 - (float(i) / float(steps)), 1.0 - (float(i) / float(steps)), 1.0)
 			await get_tree().process_frame
 	elif level == 2:
@@ -37,6 +37,9 @@ func level_manager():
 	elif level == 5:
 		mob_spawn_count = 25
 		mobs_to_kill = 25
+	elif level == 6:
+		mob_spawn_count = 29
+		mobs_to_kill = 29
 
 
 func game_over():

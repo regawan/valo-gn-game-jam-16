@@ -100,9 +100,10 @@ occluder = SubResource("OccluderPolygon2D_xtcgg")
 
 [node name="WalkSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_5hqrb")
-volume_db = 5.0
+volume_db = 4.0
 pitch_scale = 1.2
-attenuation = 6.9
+max_distance = 1000.0
+attenuation = 7.0
 
 [node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_t8guv")

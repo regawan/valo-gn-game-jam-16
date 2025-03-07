@@ -638,6 +638,7 @@ position = Vector2(720, 540)
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_67ri8")
+volume_db = -15.0
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_kfbq2")

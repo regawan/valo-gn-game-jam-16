@@ -259,5 +259,7 @@ position_smoothing_enabled = true
 [node name="WalkSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_h1q25")
 volume_db = -10.0
+max_distance = 1000.0
+attenuation = 7.0
 
 [connection signal="shot" from="Gun" to="." method="_on_gun_shot"]

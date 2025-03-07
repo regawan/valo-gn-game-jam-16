@@ -10,7 +10,6 @@ func _ready() -> void:
 	player = get_node("/root/Main/Player")
 	var mob_types = Array($AnimatedSprite2D.sprite_frames.get_animation_names())
 	$AnimatedSprite2D.animation = mob_types.pick_random()
-	$WalkSound.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,6 +21,8 @@ func _physics_process(delta: float) -> void:
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		$AnimatedSprite2D.play()
+		if $WalkSound.playing == false:
+			$WalkSound.play()
 	else:
 		$AnimatedSprite2D.stop()
 
