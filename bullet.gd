@@ -1,7 +1,7 @@
 extends Area2D
 
 var travelled_distance = 0
-const SPEED = 1000
+const SPEED = 800
 const RANGE = 300
 
 
@@ -14,7 +14,7 @@ func _physics_process(delta:float):
 		queue_free()
 
 	$Tracer.texture_scale = max(0, pow(1.0 - (travelled_distance / RANGE), 3))
-	$Tracer.energy = max(0, 1.0 - (travelled_distance / RANGE))
+	$Tracer.energy = max(0, 1.5 - (travelled_distance / RANGE))
 
 
 func _on_body_entered(body:Node2D):

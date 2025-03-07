@@ -40,6 +40,7 @@ position = Vector2(3, 0)
 rotation = 1.5708
 scale = Vector2(1.5, 2)
 color = Color(0.976471, 0.811765, 0.341176, 1)
+energy = 1.5
 shadow_enabled = true
 shadow_filter = 2
 shadow_filter_smooth = 3.0
