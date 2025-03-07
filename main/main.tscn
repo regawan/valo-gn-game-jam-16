@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://cyrpead7jipg5"]
+[gd_scene load_steps=14 format=4 uid="uid://cyrpead7jipg5"]
 
 [ext_resource type="Script" uid="uid://dfuvojkqjb5up" path="res://main/main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://djhpy6scm7kut" path="res://characters/mob.tscn" id="2_1bvp3"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c0eov4a1upfc" path="res://character_art/Sir Ultraviolence assets/Decor/Backs_tiles_decals/Dungeon/background_tile.png" id="5_4dugh"]
 [ext_resource type="AudioStream" uid="uid://k5fb6arm678d" path="res://music/gameover.wav" id="6_kfbq2"]
 [ext_resource type="AudioStream" uid="uid://bt7x1xlx688y6" path="res://music/sonido-ambiente-desierto-ambience-sound-desert-217122.mp3" id="7_67ri8"]
+[ext_resource type="AudioStream" uid="uid://bymbqxycvowm0" path="res://music/link-in-bio-fat-sub-bass-275557-edited.wav" id="7_grrlh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kfbq2"]
 resource_name = "ground"
@@ -633,8 +634,12 @@ wait_time = 0.5
 position = Vector2(720, 540)
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_grrlh")
+
+[node name="AmbientSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_67ri8")
 volume_db = -15.0
+parameters/looping = true
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_kfbq2")

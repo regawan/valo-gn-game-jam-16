@@ -7,7 +7,7 @@ signal gun_shot
 var screen_size # Size of the game window.
 const MAX_HEALTH = 100.0
 var health = 100.0
-const DAMAGE_RATE = 20.0
+const DAMAGE_RATE = 40.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

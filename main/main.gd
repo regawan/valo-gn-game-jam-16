@@ -8,9 +8,20 @@ var total_mobs: int
 var mobs_to_spawn: int
 var mobs_to_kill: int
 var modulate_color: Color
+var game_completed = false
+
 
 func _ready():
-	pass
+	$Music.play()
+	$AmbientSound.play()
+
+
+func _input(event):
+	if event is InputEventKey:
+		if event.is_action_pressed("restart_level"):
+			new_game()
+		elif event.is_action_pressed("quit"):
+			get_tree().quit()
 
 
 func level_manager():
@@ -19,11 +30,7 @@ func level_manager():
 		modulate_color = Color(255, 255, 255, 255)
 	elif level == 1:
 		total_mobs = 5
-		var steps = 300
-		for i in range(steps+1):
-			if i % 20 == 0:
-				$CanvasModulate.color = Color(1.0 - (float(i) / float(steps)), 1.0 - (float(i) / float(steps)), 1.0 - (float(i) / float(steps)), 1.0)
-			await get_tree().process_frame
+		fade_canvas_modulate(1.0)
 	elif level == 2:
 		total_mobs = 10
 	elif level == 3:
@@ -32,8 +39,6 @@ func level_manager():
 		total_mobs = 20
 	elif level == 5:
 		total_mobs = 25
-	elif level == 6:
-		total_mobs = 29
 
 
 func game_over():
@@ -50,6 +55,10 @@ func game_over():
 
 
 func new_game():
+	# Remove mobs when new game starts
+	get_tree().call_group("mobs", "queue_free")
+
+	$HUD/Title.queue_free()
 	$HUD/MessageTimer.start()
 
 	level_manager()
@@ -57,7 +66,7 @@ func new_game():
 	$Player.start()
 
 	if level == 0:
-		$HUD.show_message("Welcome to the Valo!")
+		$HUD.show_message("Welcome to Valo!")
 		await $HUD/MessageTimer.timeout
 		$HUD.show_message("Use WASD to move, mouse to aim, left click to fire!")
 		await $HUD/MessageTimer.timeout
@@ -65,7 +74,9 @@ func new_game():
 	elif level == 1:
 		$HUD.show_message("What is happening?! The world is going dark!")
 		await $HUD/MessageTimer.timeout
-		$HUD.show_message("Suddenly, you hear much clearer. But how can you view the world now?")
+		$HUD.show_message("Suddenly, you hear much clearer. Are those footsteps?!")
+		await $HUD/MessageTimer.timeout
+		$HUD.show_message("But how can you view where they are coming from?")
 		await $HUD/MessageTimer.timeout
 		$HUD.show_next_level(total_mobs, level)
 	else:
@@ -83,11 +94,17 @@ func new_game():
 	$HUD.update_mob_counter(mobs_to_kill, total_mobs)
 	$HUD.update_ammo(ammoCounter)
 
-	# Remove mobs when new game starts
-	get_tree().call_group("mobs", "queue_free")
-	# Music start
+	
 
-	$Music.play()
+func fade_canvas_modulate(direction: float):
+	var steps = 300
+	for i in range(steps+1):
+		var factor = float(i) / float(steps)
+		if direction == 1.0:
+			factor = 1.0 - factor
+		if i % 20 == 0:
+			$CanvasModulate.color = Color(factor, factor, factor, 1.0)
+		await get_tree().process_frame
 
 
 func _on_mob_timer_timeout():
@@ -107,6 +124,8 @@ func _on_mob_timer_timeout():
 
 		# Decrease the mob count.
 		mobs_to_spawn = max(0, mobs_to_spawn - 1)
+	else:
+		$MobTimer.stop()
 
 
 func _on_player_gun_shot(arg) -> void:
@@ -120,7 +139,15 @@ func _on_mob_died():
 	mobs_to_kill = max(0, mobs_to_kill - 1)
 	if mobs_to_kill == 0:
 		level += 1
-		new_game()
+		if level == 6:
+			fade_canvas_modulate(0.0)
+			$HUD.show_message("You have survived the darkness.")
+			await $HUD/MessageTimer.timeout
+			$HUD.show_message("But for how long?")
+			await $HUD/MessageTimer.timeout
+			$HUD.show_message("Thank you for playing Valo! My first game!")
+		else:
+			new_game()
 
 	# Update HUD
 	$HUD.update_mob_counter(mobs_to_kill, total_mobs)
