@@ -629,8 +629,6 @@ rotation = -0.00638396
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="ScoreTimer" type="Timer" parent="."]
-
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
@@ -643,11 +641,13 @@ stream = ExtResource("7_67ri8")
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_kfbq2")
+pitch_scale = 0.5
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
 
 [connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="gun_shot" from="Player" to="." method="_on_player_gun_shot"]
+[connection signal="health_depleted" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
-[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

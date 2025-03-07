@@ -12,7 +12,7 @@ events = [SubResource("InputEventAction_2gk58")]
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_64ctp")
 
-[node name="ScoreLabel" type="Label" parent="."]
+[node name="AmmoLabel" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
